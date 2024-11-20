@@ -1,16 +1,16 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-basedir = os.path.abspath(os.path.dirname(__file__))
 db = SQLAlchemy()
 
 def create_app():
     """Contructor del núcleo de la aplicación"""
-    app = Flask( __name__ )
+    app = Flask( __name__ , instance_relative_config=False)
     db.init_app(app)
-    app.config['SECRET_KEY'] = '1234'        
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
+    app.config.from_mapping(
+        SECRET_KEY = '1234',
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
+    )
 
     with app.app_context():
         # imports
