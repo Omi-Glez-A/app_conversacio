@@ -1,0 +1,38 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+
+<h2 class="title is-2">{{ title }}</h2>
+
+<form action="{{ url_for('signup') }}" method="post">
+
+    <fieldset class="field">
+        {{ form.username.label(class_="label") }}
+        {{ form.username(class_="input") }}
+    </fieldset>
+
+    <fieldset class="field">
+        {{ form.email.label(class_="label") }}
+        {{ form.email(class_="input") }}
+    </fieldset>
+
+    <fieldset class="field">
+        {{ form.password.label(class_="label") }}
+        {{ form.password(class_="input") }}
+    </fieldset>
+
+    <fieldset class="field">
+        {{ form.confirmPassword.label(class_="label") }}
+        {{ form.confirmPassword(class_="input") }}
+    </fieldset>
+
+    <fieldset class="field">
+        {{ form.admin.label(class_="checkbox") }}
+        {{ form.admin(class_="checkbox") }}
+    </fieldset>
+
+    {{ form.submit(class_="button") }}
+
+</form>
+
+{% endblock %}

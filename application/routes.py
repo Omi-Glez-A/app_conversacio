@@ -2,7 +2,8 @@ from flask import request, render_template, make_response, redirect, url_for
 from datetime import datetime as dt
 from flask import current_app as app
 from .models import db, User
-from forms import SignUpForm
+from .forms import SignUpForm
+
 
 @app.route('/', methods=['GET'])
 def create_user():

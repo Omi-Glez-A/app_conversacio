@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField,
+    RadioField,
     BooleanField,
     DateTimeField,
     SubmitField,
@@ -37,10 +38,6 @@ class SignUpForm(FlaskForm):
     )
     admin = BooleanField(
         'Admin',
-        [DataRequired()],
-        choices=[
-            ('Yes'),
-            ('No')
-        ]
+        [DataRequired()]
     )
     submit = SubmitField('Signup!')
