@@ -128,6 +128,8 @@ class Participant(db.Model):
     hobbies = db.Column(
         db.String(130)
     )
+    def __repr__(self):
+        return f"Participant: {self.firstname} {self.lastname}."
     
     class Schedule(db.Model):
         id = db.Column(
@@ -143,3 +145,5 @@ class Participant(db.Model):
         practice_place = db.Column(
             db.Enum(Place)
         )
+        def __repr__(self):
+            return f"Schedule: {self.day} at {self.time} at {self.practice_place}."

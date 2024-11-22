@@ -1,16 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from config import Config
 
 db = SQLAlchemy()
 
 def create_app():
     """Contructor del núcleo de la aplicación"""
     app = Flask( __name__ , instance_relative_config=False)
+    app.config.from_object(Config)
     db.init_app(app)
-    app.config.from_mapping(
-        SECRET_KEY = '1234',
-        SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
-    )
 
     with app.app_context():
         # imports
